@@ -13,14 +13,19 @@ import java.util.ArrayList;
 public class Familia {
     
     private ArrayList<Familiar> listaFamilia;
+    private int idFamilia;
+    private int cantIntegrantes;
+    private int idAlbergue;
     private int idCasa;
 
     public Familia() {
     }
 
-    public Familia(ArrayList<Familiar> listaFamilia, int idCasa) {
+    public Familia(ArrayList<Familiar> listaFamilia, int idFamilia, int cantIntegrantes, int idAlbergue, int idCasa) {
         this.listaFamilia = listaFamilia;
-        this.idCasa = idCasa;
+        this.idFamilia = idFamilia;
+        this.cantIntegrantes= cantIntegrantes;
+        this.idAlbergue= idAlbergue;
     }
 
     public ArrayList<Familiar> getListaFamilia() {
@@ -29,6 +34,30 @@ public class Familia {
 
     public void setListaFamilia(ArrayList<Familiar> listaFamilia) {
         this.listaFamilia = listaFamilia;
+    }
+
+    public int getIdFamilia() {
+        return idFamilia;
+    }
+
+    public void setIdFamilia(int idFamilia) {
+        this.idFamilia = idFamilia;
+    }
+
+    public int getCantIntegrantes() {
+        return cantIntegrantes;
+    }
+
+    public void setCantIntegrantes(int cantIntegrantes) {
+        this.cantIntegrantes = cantIntegrantes;
+    }
+
+    public int getIdAlbergue() {
+        return idAlbergue;
+    }
+
+    public void setIdAlbergue(int idAlbergue) {
+        this.idAlbergue = idAlbergue;
     }
 
     public int getIdCasa() {

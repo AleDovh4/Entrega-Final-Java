@@ -17,14 +17,16 @@ public class Tarea {
     private String tipoTarea;
     private LocalDate fechaInicio;
     private LocalDate fechaObjetivo;
+    private int idCasa;
 
     public Tarea() {
     }
 
-    public Tarea(String tipoTarea, LocalDate fechaInicio, LocalDate fechaObjetivo) {
+    public Tarea(String tipoTarea, LocalDate fechaInicio, LocalDate fechaObjetivo, int idCasa) {
         this.tipoTarea = tipoTarea;
         this.fechaInicio = fechaInicio;
         this.fechaObjetivo = fechaObjetivo;
+        this.idCasa= idCasa;
     }
 
     public String getTipoTarea() {
@@ -49,6 +51,14 @@ public class Tarea {
 
     public void setFechaObjetivo(LocalDate fechaObjetivo) {
         this.fechaObjetivo = fechaObjetivo;
+    }
+
+    public int getIdCasa() {
+        return idCasa;
+    }
+
+    public void setIdCasa(int idCasa) {
+        this.idCasa = idCasa;
     }
     
     

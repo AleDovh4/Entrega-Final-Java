@@ -11,7 +11,7 @@ package Modelo;
 public class Familiar extends Persona{
     
     private int alojamiento;
-
+    private int idFamilia; 
     public Familiar() {
     }
 
@@ -19,9 +19,10 @@ public class Familiar extends Persona{
         this.alojamiento = alojamiento;
     }
 
-    public Familiar(int alojamiento, String rut, String nombre, String apellidoPaterno, String apellidoMaterno, int edad, int telefono) {
+    public Familiar(int alojamiento, String rut, String nombre, String apellidoPaterno, String apellidoMaterno, int edad, int telefono, int idFamilia) {
         super(rut, nombre, apellidoPaterno, apellidoMaterno, edad, telefono);
         this.alojamiento = alojamiento;
+        this.idFamilia= idFamilia;
     }
 
     public int getAlojamiento() {
@@ -32,6 +33,14 @@ public class Familiar extends Persona{
         this.alojamiento = alojamiento;
     }
 
+    public int getIdFamilia() {
+        return idFamilia;
+    }
+
+    public void setIdFamilia(int idFamilia) {
+        this.idFamilia = idFamilia;
+    }
+    
     @Override
     public void cambiarEstado() {
         if(alojamiento == 1)

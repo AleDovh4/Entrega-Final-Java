@@ -16,17 +16,19 @@ public class Albergue {
     private String comuna;
     private String encargado;
     private int capacidad;
+    private int idAlbergue;
 
     public Albergue() {
     }
 
-    public Albergue(String calle, int numero, String region, String comuna, String encargado, int capacidad) {
+    public Albergue(String calle, int numero, String region, String comuna, String encargado, int capacidad, int idAlbergue) {
         this.calle = calle;
         this.numero = numero;
         this.region = region;
         this.comuna = comuna;
         this.encargado = encargado;
         this.capacidad = capacidad;
+        this.idAlbergue= idAlbergue;
     }
 
     public String getCalle() {
@@ -75,6 +77,14 @@ public class Albergue {
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
+    }
+
+    public int getIdAlbergue() {
+        return idAlbergue;
+    }
+
+    public void setIdAlbergue(int idAlbergue) {
+        this.idAlbergue = idAlbergue;
     }
     
     

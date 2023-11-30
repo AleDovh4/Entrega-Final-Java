@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 /**
@@ -14,8 +15,9 @@ public interface FamiliaBD {
     
     
     ArrayList<Familia>listaFamilia=new ArrayList<Familia>();
-    public void Crear();
-    public void Actualizar();
-    public void Eliminar();
-    public void Leer();
+    public boolean Crear(Connection link, Familia familia);
+    public boolean Actualizar(Connection link, Familia familia);
+    public boolean Eliminar(Connection link, int IdFamilia);
+    public Familia Buscar(Connection link, int IdFamilia);
+    public ArrayList<Familia>Leer(Connection link);
 }

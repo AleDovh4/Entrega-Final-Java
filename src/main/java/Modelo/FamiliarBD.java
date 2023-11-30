@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 /**
@@ -13,8 +14,10 @@ import java.util.ArrayList;
 public interface FamiliarBD {
     
     ArrayList<Familiar>listaFamiliar=new ArrayList<Familiar>();
-    public void Crear();
-    public void Actualizar();
-    public void Eliminar();
-    public void Leer();
+    public boolean Crear(Connection link, Familiar familiar);
+    public boolean Actualizar(Connection link, Familiar familiar);
+    public boolean Eliminar(Connection link, String rutFamiliar);
+    public Familiar Buscar(Connection link, String rutFamiliar);
+    public ArrayList<Familiar>Leer(Connection link);
+    
 }

@@ -15,16 +15,18 @@ public class Casa {
     private String region;
     private String comuna;
     private String estado;
+    private int IdCasa;
 
     public Casa() {
     }
 
-    public Casa(String calle, int numero, String region, String comuna, String estado) {
+    public Casa(String calle, int numero, String region, String comuna, String estado, int IdCasa) {
         this.calle = calle;
         this.numero = numero;
         this.region = region;
         this.comuna = comuna;
         this.estado = estado;
+        this.IdCasa=IdCasa;
     }
 
     public String getCalle() {
@@ -65,6 +67,14 @@ public class Casa {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public int getIdCasa() {
+        return IdCasa;
+    }
+
+    public void setIdCasa(int IdCasa) {
+        this.IdCasa = IdCasa;
     }
     
     

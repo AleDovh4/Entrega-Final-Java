@@ -28,6 +28,7 @@ public class VoluntarioController implements VoluntarioBD{
     @Override
     public boolean Crear(Connection link, Voluntario voluntario)
     {
+    //Crea una consulta para insertar datos en la tabla, recibiendo Un voluntario a ingresar
         try
         {
             Statement s = link.createStatement();
@@ -35,7 +36,7 @@ public class VoluntarioController implements VoluntarioBD{
                     + "VALUES('"+voluntario.getRut()+"','"+voluntario.getActivo()+"','"+voluntario.getNombre()+"','"+voluntario.getApellidoPaterno()+
                     "','"+voluntario.getApellidoMaterno()+"','"+voluntario.getEdad()+"','"+voluntario.getTelefono()+"','"+voluntario.getCorreo()+
                     "','"+voluntario.getProfesion()+"','"+voluntario.getDebilidad()+"','"+voluntario.getFortaleza()+"','"+voluntario.getCalle()+"','"
-                    +voluntario.getNumeroCalle()+"','"+voluntario.getRegion()+"','"+'3'+""+"')";
+                    +voluntario.getNumeroCalle()+"','"+voluntario.getRegion()+"','"+voluntario.getIdTarea()+"')";
             s.executeUpdate(query);
             return true;
             
@@ -50,6 +51,7 @@ public class VoluntarioController implements VoluntarioBD{
     @Override
     public boolean Actualizar(Connection link, Voluntario voluntario)
     {
+    //Recibe un voluntario con los datos cambiados, utilizamos su rut para Generar un update con los nuevos valores
         try
         {
             Statement s = link.createStatement();
@@ -57,7 +59,8 @@ public class VoluntarioController implements VoluntarioBD{
                     + ",ApellidoPaterno='"+voluntario.getApellidoPaterno()+"',ApellidoMaterno='"+voluntario.getApellidoMaterno()+"',Edad='"+voluntario.getEdad()+
                     "',Telefono='"+voluntario.getTelefono()+"',Correo='"+voluntario.getCorreo()+"',Profesion='"+voluntario.getProfesion()+"'"
                     + ",Debilidad='"+voluntario.getDebilidad()+"',Fortaleza='"+voluntario.getFortaleza()+"',Calle='"+voluntario.getCalle()+
-                    "',Numero='"+voluntario.getNumeroCalle()+"',Region='"+voluntario.getRegion()+"' WHERE RutVoluntario='"+voluntario.getRut()+"'";
+                    "',Numero='"+voluntario.getNumeroCalle()+"',Region='"+voluntario.getRegion()+"',IdTarea='"+voluntario.getIdTarea()+"' WHERE RutVoluntario='"+voluntario.getRut()+"'";
+            //Ya que es un update se debe utilizar executeUpdate(Lo mismo para el caso del delete)
             s.executeUpdate(query);
             return true;
             
@@ -72,6 +75,7 @@ public class VoluntarioController implements VoluntarioBD{
     @Override
     public boolean Eliminar(Connection link, String rutVoluntario)
     {
+    //Recibimos un rut, para luego buscarlo en la consulta y eliminar la tupla de la tabla, se aplica executeUpdate por el mismo motivo
         try 
         {
             Statement s = link.createStatement();
@@ -92,6 +96,7 @@ public class VoluntarioController implements VoluntarioBD{
     @Override
     public ArrayList<Voluntario>Leer(Connection link)
     {
+    //Ejecutamos la lectura de todos los datos y devolvemos un arraylist de la tabla correspondiente
         try
         {
             Statement s = link.createStatement();
@@ -114,7 +119,7 @@ public class VoluntarioController implements VoluntarioBD{
                voluntario.setCalle(rs.getString("Calle"));
                voluntario.setNumeroCalle(rs.getInt("Numero"));
                voluntario.setRegion(rs.getString("Region"));
-               
+               voluntario.setIdTarea(rs.getInt("IdTarea"));
                listaVoluntario.add(voluntario);
                 
             }
@@ -132,6 +137,7 @@ public class VoluntarioController implements VoluntarioBD{
     @Override
     public Voluntario Buscar(Connection link, String rutVoluntario)
     {
+    //Recibir un rut, para buscarlo en la tabla y devolver la tupla completa
         Voluntario voluntario = new Voluntario();
         
         try 
@@ -158,7 +164,7 @@ public class VoluntarioController implements VoluntarioBD{
                voluntario.setCalle(rs.getString("Calle"));
                voluntario.setNumeroCalle(rs.getInt("Numero"));
                voluntario.setRegion(rs.getString("Region"));
-                
+               voluntario.setIdTarea(rs.getInt("IdTarea"));
             }
             return voluntario;
   
