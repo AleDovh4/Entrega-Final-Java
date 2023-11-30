@@ -24,8 +24,8 @@ public class Conexion {
     private Connection link ;
     
     public Conexion(){
-        this.db="Voluntarios";
-        this.url = "jdbc:mysql://localhost/" + db;
+        this.db="voluntarios";
+        this.url = "jdbc:mysql://localhost:3306/" + db;
         this.user="root";
         this.pass="";
         this.link=null;
